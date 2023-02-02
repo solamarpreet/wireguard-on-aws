@@ -1,0 +1,25 @@
+---
+
+- name: Restarting Docker Docker
+  hosts: vpn
+  become: true
+  tasks:
+
+    - name: Stopping Compose
+      ansible.builtin.command:
+        cmd: docker compose down
+        chdir: /home/ubuntu
+    
+    - name: Upgrading containers
+      ansible.builtin.command:
+        cmd: docker compose pull
+        chdir: /home/ubuntu
+
+    - name: Starting Compose
+      ansible.builtin.command:
+        cmd: docker compose up -d
+        chdir: /home/ubuntu
+
+    - name: Removing dangling images
+      ansible.builtin.command:
+        cmd: docker image prune
