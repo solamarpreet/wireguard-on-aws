@@ -4,11 +4,18 @@
   hosts: vpn
   become: true
   tasks:
-
     - name: Stopping Compose
       ansible.builtin.command:
         cmd: docker compose down
         chdir: /home/ubuntu
+
+    - name: Updating instances
+      apt:
+        update_cache: yes
+        upgrade: dist
+
+    - name: Rebooting instances
+      reboot:
     
     - name: Upgrading containers
       ansible.builtin.command:

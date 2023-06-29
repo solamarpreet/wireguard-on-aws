@@ -10,7 +10,7 @@ variable "ansible_ssh_private_key_file" {
 
 variable "profile" {
   description = "AWS profile you wish to use from the config file"
-  default = "default"
+  default     = "default"
   type        = string
 }
 

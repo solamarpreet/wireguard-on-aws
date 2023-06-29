@@ -7,7 +7,7 @@ terraform {
   }
 }
 
-# Configure the AWS Provider
+# Configuring the AWS Provider
 
 provider "aws" {
   shared_config_files      = ["$HOME/.aws/config"]

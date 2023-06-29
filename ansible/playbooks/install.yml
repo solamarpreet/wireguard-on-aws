@@ -88,7 +88,7 @@
 
     - name: Waiting for peer profiles to be generated
       ansible.builtin.wait_for:
-        path: /app/wireguard/config/peer2/peer2.png
+        path: /app/wireguard/peer2/peer2.png
 
     - name: Sleep for 10 seconds
       ansible.builtin.wait_for:
